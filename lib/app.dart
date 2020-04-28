@@ -6,8 +6,10 @@ import 'package:provider/provider.dart';
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Provider(
-      create: (context)=> ProductBloc(),
+    return MultiProvider(providers: [
+      Provider(create:(_) => ProductBloc()),
+    ],
+
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
