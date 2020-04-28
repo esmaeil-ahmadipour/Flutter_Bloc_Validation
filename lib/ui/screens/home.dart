@@ -4,45 +4,47 @@ import 'package:flutter/material.dart';
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Title'),
+        title: Text("Bloc Pattern"),
       ),
       body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          padding: EdgeInsets.all(8.0),
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max,
             children: <Widget>[
-              TextField(
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: "EnterEmail",
-                  labelText: "Email",
-                ),
-              ),
-              TextField(
-                keyboardType: TextInputType.visiblePassword,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  hintText: "EnterPassword",
-                  labelText: "Password",
-                ),
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
-              RaisedButton(
-                onPressed: () {},
-                child: Text('Submit'),
-              ),
+              productName(),
+              productPrice(),
+              SizedBox(height: 15,),
+              button(),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget productName() {
+    return TextField(
+      decoration: InputDecoration(
+        labelText: 'Product Name',
+      ),
+    );
+  }
+
+  Widget productPrice() {
+    return TextField(
+      decoration: InputDecoration(
+        labelText: 'Product Price',
+      ),
+    );
+  }
+
+  Widget button() {
+    return RaisedButton(
+      onPressed: () {},
+      child: Text('Save Data'),
     );
   }
 }
